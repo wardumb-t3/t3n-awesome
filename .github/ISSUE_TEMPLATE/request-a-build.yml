@@ -1,0 +1,16 @@
+name: Request a build
+description: Describe an agent security problem you'd like a demo or workflow for.
+title: "Request: "
+labels: ["request"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: What should the agent be able to do safely?
+      placeholder: Let an HR agent check payslips without seeing salaries.
+    validations: { required: true }
+  - type: textarea
+    id: data
+    attributes:
+      label: What sensitive data is involved, and who must not see it?
+    validations: { required: true }

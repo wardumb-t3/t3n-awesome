@@ -1,0 +1,62 @@
+name: Submit an entry
+description: Suggest a demo, workflow, tool, agent or guide for the list.
+title: "Add: "
+labels: ["submission"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks! A maintainer will turn this into a pull request. Prefer to open the pull request yourself? See CONTRIBUTING.md in the repo root.
+  - type: input
+    id: name
+    attributes: { label: Name, placeholder: Payslip Checker }
+    validations: { required: true }
+  - type: input
+    id: url
+    attributes: { label: Repository URL, placeholder: "https://github.com/you/your-repo" }
+    validations: { required: true }
+  - type: dropdown
+    id: type
+    attributes:
+      label: Type
+      options: [Demo, Workflow, Tool, Agent, Learn]
+    validations: { required: true }
+  - type: textarea
+    id: summary
+    attributes:
+      label: One-sentence summary
+      description: Lead with what the agent can do safely. Max 200 characters.
+    validations: { required: true }
+  - type: checkboxes
+    id: pillars
+    attributes:
+      label: Security controls it demonstrates
+      options:
+        - label: identity
+        - label: delegation
+        - label: privacy
+        - label: spend-control
+        - label: egress-control
+        - label: human-in-loop
+        - label: audit
+        - label: credentials
+  - type: input
+    id: license
+    attributes: { label: License (SPDX), placeholder: MIT }
+    validations: { required: true }
+  - type: input
+    id: demo
+    attributes: { label: Demo link (video, GIF or live URL), description: Required for demos. }
+  - type: dropdown
+    id: runs_on_t3n
+    attributes:
+      label: Does it run on T3N?
+      options: ["Yes", "No"]
+    validations: { required: true }
+  - type: checkboxes
+    id: confirm
+    attributes:
+      label: Confirm
+      options:
+        - label: It's open source, public, and its README explains how to run it.
+          required: true

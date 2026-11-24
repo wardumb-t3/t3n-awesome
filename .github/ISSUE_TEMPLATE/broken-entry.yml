@@ -1,0 +1,13 @@
+name: Report a broken or outdated entry
+description: A link is dead, a project is abandoned, or a summary is wrong.
+title: "Broken: "
+labels: ["maintenance"]
+body:
+  - type: input
+    id: entry
+    attributes: { label: Entry name or id }
+    validations: { required: true }
+  - type: textarea
+    id: what
+    attributes: { label: What's wrong? }
+    validations: { required: true }

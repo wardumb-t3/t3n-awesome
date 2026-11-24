@@ -1,0 +1,78 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Terminal-3/awesome-trusted-ai/registry/schema.json",
+  "title": "Awesome Trusted AI registry entry",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "name", "type", "summary", "url", "pillars", "license", "badge", "added"],
+  "properties": {
+    "id": { "type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$", "description": "Must equal the file name without .yml" },
+    "name": { "type": "string", "minLength": 2, "maxLength": 60 },
+    "type": { "enum": ["agent", "workflow", "tool", "demo", "learn"] },
+    "summary": { "type": "string", "minLength": 20, "maxLength": 200, "description": "One sentence. Lead with what the agent can do safely." },
+    "url": { "type": "string", "format": "uri", "description": "Repo, or the canonical page for learn entries" },
+    "demo_url": { "type": ["string", "null"], "format": "uri" },
+    "pillars": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": { "enum": ["identity", "delegation", "privacy", "spend-control", "egress-control", "human-in-loop", "audit", "credentials"] }
+    },
+    "stack": { "type": "array", "uniqueItems": true, "items": { "type": "string", "pattern": "^[a-z0-9.+#-]+$" } },
+    "runtime": { "enum": ["t3n", "other"], "default": "t3n" },
+    "t3n_features": { "type": "array", "uniqueItems": true, "items": { "type": "string" } },
+    "license": { "type": "string", "description": "SPDX identifier, or 'spec' for standards documents" },
+    "badge": {
+      "enum": ["built-by-t3n", "secured-on-t3n", "none"],
+      "description": "secured-on-t3n is granted by maintainers after verification; submitters use none"
+    },
+    "maintainers": { "type": "array", "items": { "type": "string", "pattern": "^@[A-Za-z0-9-]+$" } },
+    "business_function": {
+      "enum": ["payroll-hr", "finance-payments", "customer-support", "healthcare", "insurance", "travel-expense", "identity-kyc", "legal-compliance", "others"],
+      "description": "Agent Directory categories.slug"
+    },
+    "pain": { "type": "string", "maxLength": 200, "description": "Directory agents.pain" },
+    "protects": { "type": "string", "maxLength": 200, "description": "Directory agents.protect_summary" },
+    "flow": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["source", "enclave", "agent"],
+      "properties": {
+        "source": { "type": "string" },
+        "enclave": { "type": "string" },
+        "agent": { "type": "string" }
+      }
+    },
+    "did": { "type": ["string", "null"], "pattern": "^did:" },
+    "provider": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name"],
+      "properties": { "name": { "type": "string" }, "website": { "type": "string", "format": "uri" } }
+    },
+    "directory": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "Set by the sync job, never by hand",
+      "properties": { "listed": { "type": "boolean" }, "agent_id": { "type": ["string", "null"] } }
+    },
+    "contract": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "Technical detail for workflows",
+      "properties": {
+        "wit_world": { "type": "string" },
+        "version": { "type": "string" },
+        "wasm_sha256": { "type": ["string", "null"], "pattern": "^[0-9a-f]{64}$" }
+      }
+    },
+    "added": { "type": "string", "format": "date" }
+  },
+  "allOf": [
+    { "if": { "properties": { "type": { "const": "agent" } } }, "then": { "required": ["did", "business_function"] } },
+    {
+      "if": { "properties": { "badge": { "const": "secured-on-t3n" } } },
+      "then": { "required": ["contract"], "properties": { "contract": { "type": "object", "required": ["wasm_sha256"] }, "runtime": { "const": "t3n" } } }
+    }
+  ]
+}

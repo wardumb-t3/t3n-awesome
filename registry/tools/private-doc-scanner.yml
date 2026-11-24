@@ -1,0 +1,22 @@
+id: private-doc-scanner
+name: Private Doc Scanner
+type: tool
+summary: On-device OCR for passports, payslips and bank statements — the user confirms fields, only those are sealed to their vault, and enclave checks return pass/fail.
+url: https://github.com/Terminal-3/private-doc-scanner
+pillars: [privacy, credentials]
+stack: [typescript, rust, wasm, pwa]
+runtime: t3n
+t3n_features: [vault, tenant-contract]
+license: Apache-2.0
+badge: built-by-t3n
+business_function: identity-kyc
+pain: Verifying documents usually means uploading them to someone else's server.
+protects: Documents never leave the device; only confirmed fields are sealed, and checks reveal pass/fail only.
+flow:
+  source: Document read on the user's device
+  enclave: Workflow runs the check on sealed fields
+  agent: Gets pass / fail
+provider:
+  name: Terminal 3
+  website: https://terminal3.io
+added: 2026-11-24

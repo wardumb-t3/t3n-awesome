@@ -1,0 +1,25 @@
+id: z-tenant-flight
+name: Z-Tenant Flight
+type: workflow
+summary: Enclave workflow that searches and books Duffel flights; traveller PII stays in sealed maps and outbound calls are locked to one host.
+url: https://github.com/Terminal-3/z-tenant-flight
+pillars: [privacy, egress-control]
+stack: [rust, wasm, typescript]
+runtime: t3n
+t3n_features: [tenant-contract, sealed-maps, http-placeholders, egress-grant, agent-credits]
+license: NOASSERTION
+badge: built-by-t3n
+business_function: travel-expense
+pain: A booking API needs the traveller's identity, but the agent calling it shouldn't hold it.
+protects: Name, contact and passport data go only to Duffel, straight from the enclave.
+flow:
+  source: Traveller profile sealed in the vault
+  enclave: Workflow fills {{profile.*}} placeholders and calls Duffel
+  agent: Gets offers and the booking reference
+provider:
+  name: Terminal 3
+  website: https://terminal3.io
+contract:
+  wit_world: tenant-base
+  version: 0.7.0
+added: 2026-11-24

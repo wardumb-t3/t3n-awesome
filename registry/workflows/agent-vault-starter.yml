@@ -1,0 +1,24 @@
+id: agent-vault-starter
+name: Agent Vault Starter
+type: workflow
+summary: The store / check / forget template — agents ask "over 18?" or "KYC verified?" and get true/false, never the underlying record. Best first workflow.
+url: https://github.com/Terminal-3/agent-vault-starter
+pillars: [privacy, credentials]
+stack: [rust, wasm]
+runtime: t3n
+t3n_features: [tenant-contract, z-namespace]
+license: NOASSERTION
+badge: built-by-t3n
+business_function: identity-kyc
+pain: Agents need to know facts about a customer, not the customer's raw data.
+protects: Raw records stay in the enclave; granted agents only see yes/no answers.
+flow:
+  source: Customer stores personal records
+  enclave: Workflow evaluates the rule
+  agent: Gets true / false
+provider:
+  name: Terminal 3
+  website: https://terminal3.io
+contract:
+  wit_world: tenant-base
+added: 2026-11-24

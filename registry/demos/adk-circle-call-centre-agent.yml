@@ -1,0 +1,22 @@
+id: adk-circle-call-centre-agent
+name: Spend-Controlled Call-Centre Agent
+type: demo
+summary: Support agent buys paid lookups over x402/USDC with an allowlist, per-call cap, session budget, tamper-evident ledger and one-click revoke.
+url: https://github.com/Terminal-3/adk-circle-call-centre-agent-demo
+pillars: [spend-control, audit]
+stack: [typescript, rust, wasm, nextjs]
+runtime: t3n
+t3n_features: [tenant-contract, sealed-maps, agent-credits]
+license: MIT
+badge: built-by-t3n
+business_function: customer-support
+pain: An agent holding a payment credential can overspend or be tricked into paying anyone.
+protects: Payment credentials stay sealed; every spend is checked against policy before it happens and logged.
+flow:
+  source: Operator funds the agent and sets limits
+  enclave: Policy workflow enforces allowlist, caps and budget, then pays
+  agent: Gets the paid lookup result, never the credential
+provider:
+  name: Terminal 3
+  website: https://terminal3.io
+added: 2026-11-24

@@ -1,0 +1,39 @@
+# Copy to registry/<folder>/<id>.yml (folders: demos, workflows, tools, agents, learn).
+# The file name must equal `id`. Delete the optional lines you don't use.
+# Field reference: registry/schema.json
+
+id: my-entry                      # lowercase-with-dashes
+name: My Entry
+type: workflow                    # demo | workflow | tool | agent | learn
+summary: One sentence that leads with what the agent can do safely, not with adjectives.
+url: https://github.com/you/your-repo
+demo_url: null                    # optional: video, GIF or live URL (required for demos)
+pillars: [privacy]                # identity | delegation | privacy | spend-control | egress-control | human-in-loop | audit | credentials
+stack: [rust, wasm]
+runtime: t3n                      # t3n | other
+license: MIT                      # SPDX id of your repo's license (OSI-approved)
+badge: none                       # maintainers set secured-on-t3n after verification
+maintainers: ["@your-github-handle"]
+
+# Optional — these appear on your Agent Directory card
+business_function: others         # payroll-hr | finance-payments | customer-support | healthcare | insurance | travel-expense | identity-kyc | legal-compliance | others
+pain: The problem in one sentence, from the user's side.
+protects: What the user's data is protected from.
+flow:
+  source: Where the sensitive data comes from
+  enclave: What the workflow does with it inside the enclave
+  agent: What the agent gets back
+provider:
+  name: Your name or company
+  website: https://example.com
+
+# Workflows only — needed for the Secured on T3N badge
+contract:
+  wit_world: tenant-base
+  version: 1.0.0
+  wasm_sha256: null               # sha256 of the built .wasm; maintainers rebuild from source and compare
+
+# Agents only
+# did: did:t3n:...
+
+added: 2026-01-01                 # today's date
