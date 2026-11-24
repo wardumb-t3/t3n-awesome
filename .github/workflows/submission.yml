@@ -1,0 +1,65 @@
+# When a maintainer labels a "Submit an entry" issue `approved`, this checks the submitted repo is
+# built with T3N, writes its registry entry, and opens a pull request. It never runs the submitted code.
+name: Submission to pull request
+on:
+  issues:
+    types: [labeled]
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+concurrency:
+  group: submission-${{ github.event.issue.number }}
+jobs:
+  submit:
+    if: github.event.label.name == 'approved' && contains(github.event.issue.labels.*.name, 'submission')
+    runs-on: ubuntu-latest
+    env:
+      ISSUE_BODY: ${{ github.event.issue.body }}
+      ISSUE_NUMBER: ${{ github.event.issue.number }}
+      ISSUE_AUTHOR: ${{ github.event.issue.user.login }}
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+
+      - id: parse
+        run: node scripts/issue-to-entry.mjs parse
+
+      - name: Clone the submitted repo (read only)
+        if: steps.parse.outputs.ok == 'true'
+        env:
+          REPO_URL: ${{ steps.parse.outputs.url }}
+        run: git clone --depth 1 --no-tags -- "$REPO_URL" "$RUNNER_TEMP/submission"
+
+      - id: write
+        if: steps.parse.outputs.ok == 'true'
+        run: node scripts/issue-to-entry.mjs write "$RUNNER_TEMP/submission"
+
+      - id: pr
+        if: steps.write.outputs.ok == 'true'
+        uses: peter-evans/create-pull-request@v7
+        with:
+          branch: submission/issue-${{ github.event.issue.number }}
+          add-paths: ${{ steps.write.outputs.path }}
+          commit-message: "Add ${{ steps.write.outputs.id }} (#${{ github.event.issue.number }})"
+          title: "Add ${{ steps.write.outputs.id }}"
+          body-path: ${{ runner.temp }}/pr-body.md
+          labels: submission
+
+      - name: Reply on the issue
+        if: always()
+        env:
+          PR_URL: ${{ steps.pr.outputs.pull-request-url }}
+        run: |
+          f="$RUNNER_TEMP/comment.md"
+          if [ ! -f "$f" ]; then
+            echo "Something went wrong turning this into a pull request. A maintainer will take a look: $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID" > "$f"
+          fi
+          if [ -n "$PR_URL" ]; then echo "$PR_URL" >> "$f"; fi
+          gh issue comment "$ISSUE_NUMBER" --repo "$GITHUB_REPOSITORY" --body-file "$f"
+          gh issue edit "$ISSUE_NUMBER" --repo "$GITHUB_REPOSITORY" --remove-label approved

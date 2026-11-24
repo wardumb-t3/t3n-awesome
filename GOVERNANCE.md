@@ -12,7 +12,8 @@ an existing maintainer. The goal is for at least one maintainer to be from outsi
 
 ## How decisions are made
 
-- **Adding an entry**: one maintainer approves.
+- **Adding an entry**: one maintainer approves. For issue submissions, adding the `approved` label
+  runs the submission bot, and a maintainer still reviews and merges the pull request it opens.
 - **Granting Secured on T3N**: two maintainers approve after reproducing the WASM hash.
 - **Removing an entry**: any maintainer, with the reason in the pull request. Entries are removed
   when they are abandoned for 12 months, their links break and aren't fixed within 30 days, or a

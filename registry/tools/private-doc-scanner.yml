@@ -6,7 +6,7 @@ url: https://github.com/Terminal-3/private-doc-scanner
 pillars: [privacy, credentials]
 stack: [typescript, rust, wasm, pwa]
 runtime: t3n
-t3n_features: [vault, tenant-contract]
+t3n_features: [tenant-contract, sealed-maps, t3n-sdk, vault]
 license: Apache-2.0
 badge: built-by-t3n
 business_function: identity-kyc

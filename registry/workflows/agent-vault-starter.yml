@@ -6,7 +6,7 @@ url: https://github.com/Terminal-3/agent-vault-starter
 pillars: [privacy, credentials]
 stack: [rust, wasm]
 runtime: t3n
-t3n_features: [tenant-contract, z-namespace]
+t3n_features: [tenant-contract, sealed-maps]
 license: NOASSERTION
 badge: built-by-t3n
 business_function: identity-kyc
@@ -20,5 +20,6 @@ provider:
   name: Terminal 3
   website: https://terminal3.io
 contract:
-  wit_world: tenant-base
+  wit_world: agent-vault
+  version: 0.1.0
 added: 2026-11-24

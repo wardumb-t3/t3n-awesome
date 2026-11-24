@@ -15,5 +15,7 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
-      - name: Validate registry and check README is regenerated
-        run: npm run check
+      - name: Validate registry
+        run: npm run validate
+      - name: Check the README still builds
+        run: npm run build

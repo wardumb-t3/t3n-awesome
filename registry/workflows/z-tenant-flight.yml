@@ -6,7 +6,7 @@ url: https://github.com/Terminal-3/z-tenant-flight
 pillars: [privacy, egress-control]
 stack: [rust, wasm, typescript]
 runtime: t3n
-t3n_features: [tenant-contract, sealed-maps, http-placeholders, egress-grant, agent-credits]
+t3n_features: [tenant-contract, sealed-maps, outbound-http, http-placeholders, t3n-sdk, egress-grant, agent-credits]
 license: NOASSERTION
 badge: built-by-t3n
 business_function: travel-expense
@@ -20,6 +20,6 @@ provider:
   name: Terminal 3
   website: https://terminal3.io
 contract:
-  wit_world: tenant-base
+  wit_world: tenant-flight
   version: 0.7.0
 added: 2026-11-24

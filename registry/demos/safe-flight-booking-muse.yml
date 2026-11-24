@@ -6,7 +6,7 @@ url: https://github.com/wardumb-t3/safe-flight-booking-muse
 pillars: [privacy, delegation]
 stack: [rust, wasm, node, vite]
 runtime: t3n
-t3n_features: [tenant-contract, vault, delegation, http-placeholders]
+t3n_features: [tenant-contract, sealed-maps, outbound-http, http-placeholders, t3n-sdk, vault, delegation]
 license: MIT
 badge: built-by-t3n
 business_function: travel-expense

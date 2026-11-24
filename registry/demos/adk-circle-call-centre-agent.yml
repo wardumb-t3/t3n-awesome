@@ -6,7 +6,7 @@ url: https://github.com/Terminal-3/adk-circle-call-centre-agent-demo
 pillars: [spend-control, audit]
 stack: [typescript, rust, wasm, nextjs]
 runtime: t3n
-t3n_features: [tenant-contract, sealed-maps, agent-credits]
+t3n_features: [tenant-contract, sealed-maps, outbound-http, t3n-sdk, agent-credits]
 license: MIT
 badge: built-by-t3n
 business_function: customer-support
