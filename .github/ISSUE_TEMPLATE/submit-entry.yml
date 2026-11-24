@@ -47,12 +47,6 @@ body:
   - type: input
     id: demo
     attributes: { label: Demo link (video, GIF or live URL), description: Required for demos. }
-  - type: textarea
-    id: t3n
-    attributes:
-      label: How does it use T3N?
-      description: Only projects built on T3N are accepted. Name the parts it uses, e.g. a workflow (contract) in the enclave, sealed vault data, placeholders in outbound calls, delegation, the T3N SDK.
-    validations: { required: true }
   - type: checkboxes
     id: confirm
     attributes:
@@ -60,5 +54,5 @@ body:
       options:
         - label: It's open source, public, and its README explains how to run it.
           required: true
-        - label: It's built on T3N.
+        - label: It's built with T3N.
           required: true
