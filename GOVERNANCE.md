@@ -19,7 +19,8 @@ an existing maintainer. The goal is for at least one maintainer to be from outsi
   security issue goes unaddressed.
 - **Changing these rules**: a pull request to this file, open for at least seven days.
 
-## Neutrality
+## Scope
 
-Entries are judged on merit. Projects that compete with T3N are welcome when they help developers
-build trustworthy agents. Terminal 3 entries meet the same bar as everyone else's.
+Every entry must be built on T3N; that's what this list is for. Within that, entries are judged on
+merit, and Terminal 3 entries meet the same bar as everyone else's. The Ecosystem & Standards
+section is the one exception: maintainers curate it as background reading.

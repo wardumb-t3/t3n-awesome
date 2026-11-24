@@ -1,5 +1,5 @@
 name: Submit an entry
-description: Suggest a demo, workflow, tool, agent or guide for the list.
+description: Suggest a demo, workflow, tool, agent or guide built on T3N.
 title: "Add: "
 labels: ["submission"]
 body:
@@ -47,11 +47,11 @@ body:
   - type: input
     id: demo
     attributes: { label: Demo link (video, GIF or live URL), description: Required for demos. }
-  - type: dropdown
-    id: runs_on_t3n
+  - type: textarea
+    id: t3n
     attributes:
-      label: Does it run on T3N?
-      options: ["Yes", "No"]
+      label: How does it use T3N?
+      description: Only projects built on T3N are accepted. Name the parts it uses, e.g. a workflow (contract) in the enclave, sealed vault data, placeholders in outbound calls, delegation, the T3N SDK.
     validations: { required: true }
   - type: checkboxes
     id: confirm
@@ -59,4 +59,6 @@ body:
       label: Confirm
       options:
         - label: It's open source, public, and its README explains how to run it.
+          required: true
+        - label: It's built on T3N.
           required: true

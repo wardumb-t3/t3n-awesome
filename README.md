@@ -15,9 +15,9 @@ AI agents are being handed passports, payment cards and API keys. This list coll
 that lets an agent **use** that data without **seeing** it, spend money without overspending, and
 prove afterwards what it did and who allowed it.
 
-Everything here runs inside a Trusted Execution Environment (TEE): hardware-isolated code that
-neither the agent, the app developer nor the server operator can read into. Every entry is open
-source and reviewed.
+Every entry is built on [T3N](https://docs.terminal3.io/?ref=awesome), so its sensitive work runs
+inside a Trusted Execution Environment (TEE): hardware-isolated code that neither the agent, the
+app developer nor the server operator can read into. Every entry is open source and reviewed.
 
 ## Contents
 
@@ -91,7 +91,7 @@ Guides for building on T3N.
 
 ## 🌐 Ecosystem & Standards
 
-The open standards trusted agents are built on.
+The open standards T3N builds on. Curated by maintainers as background reading.
 
 - [Agent Payments Protocol (AP2)](https://github.com/google-agentic-commerce/AP2) — Protocol for agent-initiated payments built on signed mandates that prove what the user authorised. `spend-control` `delegation` `audit`
 - [Agent2Agent (A2A) Protocol](https://github.com/a2aproject/A2A) — Open protocol for agents to discover each other and exchange tasks, including agent cards and authentication. `identity`

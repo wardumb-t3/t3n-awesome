@@ -20,16 +20,23 @@ if the two disagree.
 
 ## What gets accepted
 
+- ✅ **It's built on T3N.** It uses the T3N SDK or ADK, or ships a workflow that runs in a T3N
+  enclave, and `t3n_features` says which parts. You don't need T3N installed to submit, but the
+  project itself must use it.
 - ✅ It solves an agent security or governance problem: identity, delegation, privacy, spend
   control, egress control, human-in-the-loop or audit.
 - ✅ It's open source under an OSI-approved license, in a public repo, with a README that says how
   to run it.
 - ✅ It works today. Demos need a video, GIF or live URL.
 - ✅ The summary says what the agent can do safely, in one sentence, without marketing adjectives.
-- ❌ Closed source, paywalled, abandoned (no commits in 12 months), or a marketing page.
+- ❌ Not built on T3N, closed source, paywalled, abandoned (no commits in 12 months), or a
+  marketing page.
 
-Entries don't have to run on T3N. Anything that makes agents more trustworthy is welcome, and
-standards and work from other projects go under **Ecosystem & Standards**.
+New to T3N? Start with the [ADK quickstart](https://docs.terminal3.io/developers/adk/get-started/quickstart)
+and fork [Agent Vault Starter](https://github.com/Terminal-3/agent-vault-starter).
+
+**Ecosystem & Standards** is curated by maintainers as background reading and isn't open for
+submissions. To suggest a standard, open a discussion.
 
 ## Badges
 

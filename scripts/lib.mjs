@@ -13,7 +13,7 @@ export const SECTIONS = [
   { dir: 'tools', type: 'tool', title: '🧰 Tools', blurb: 'SDKs, scanners, CLIs and MCP servers.' },
   { dir: 'agents', type: 'agent', title: '🤖 Agents', blurb: 'Agents you can use today.' },
   { dir: 'learn', type: 'learn', title: '📚 Learn', blurb: 'Guides for building on T3N.', filter: (e) => e.runtime !== 'other' },
-  { dir: 'learn', type: 'learn', title: '🌐 Ecosystem & Standards', blurb: 'The open standards trusted agents are built on.', filter: (e) => e.runtime === 'other' },
+  { dir: 'learn', type: 'learn', title: '🌐 Ecosystem & Standards', blurb: 'The open standards T3N builds on. Curated by maintainers as background reading.', filter: (e) => e.runtime === 'other' },
 ];
 
 export function loadEntries() {
