@@ -27,7 +27,7 @@ the community or their code-owners.
 - [🔐 Workflows](#-workflows) — confidential functions that run sealed in the enclave
 - [🧰 Tools](#-tools) — SDKs, scanners, CLIs, MCP servers
 - [🤖 Agents](#-agents) — trusted agents you can use today
-- [📚 Learn](#-learn) — guides for building on T3N
+- [📚 Learn](#-learn) — how to build safe agentic solutions, workflows and processes
 - [🧩 Use cases](use-cases/) — problem → pattern → code
 - [🛑 Agent Threat Catalogue](threats/) — what goes wrong, and which entry stops it
 
@@ -83,7 +83,7 @@ _Nothing here yet. [Be the first →](CONTRIBUTING.md)_
 
 ## 📚 Learn
 
-Guides and tutorials for building on T3N.
+Guides, courses, talks and patterns for building safe agentic solutions, workflows and processes, on any stack.
 
 _Nothing here yet. [Be the first →](CONTRIBUTING.md)_
 

@@ -22,5 +22,6 @@ an existing maintainer. The goal is for at least one maintainer to be from outsi
 
 ## Scope
 
-Every entry must be built on T3N; that's what this list is for. Within that, entries are judged on
-merit, and Terminal 3 entries meet the same bar as everyone else's.
+Demos, workflows, tools and agents must be built on T3N; that's what this list is for. Learn is the
+exception: it covers building safe agentic systems on any stack. All entries are judged on merit,
+and Terminal 3 entries meet the same bar as everyone else's.

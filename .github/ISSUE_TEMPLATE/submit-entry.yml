@@ -1,5 +1,5 @@
 name: Submit an entry
-description: Suggest a demo, workflow, tool, agent or guide built on T3N.
+description: Suggest a demo, workflow, tool or agent built on T3N, or a Learn resource on building safe agentic systems.
 title: "Add: "
 labels: ["submission"]
 body:
@@ -56,5 +56,5 @@ body:
       options:
         - label: Developers can try it or learn from it (public repo, docs, demo or product page).
           required: true
-        - label: It's built with T3N.
+        - label: It's built with T3N, or it's a Learn resource.
           required: true

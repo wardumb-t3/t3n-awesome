@@ -12,7 +12,7 @@ export const SECTIONS = [
   { dir: 'workflows', type: 'workflow', title: '🔐 Workflows', blurb: 'Confidential functions that run sealed in the enclave. Deploy or fork.' },
   { dir: 'tools', type: 'tool', title: '🧰 Tools', blurb: 'SDKs, scanners, CLIs and MCP servers.' },
   { dir: 'agents', type: 'agent', title: '🤖 Agents', blurb: 'Trusted agents you can use today.' },
-  { dir: 'learn', type: 'learn', title: '📚 Learn', blurb: 'Guides and tutorials for building on T3N.' },
+  { dir: 'learn', type: 'learn', title: '📚 Learn', blurb: 'Guides, courses, talks and patterns for building safe agentic solutions, workflows and processes, on any stack.' },
 ];
 
 export function loadEntries() {
