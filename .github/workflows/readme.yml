@@ -1,5 +1,7 @@
 # Contributors only add YAML. After merge, this regenerates the README block and commits it.
-# The GitHub Actions bot must be allowed to push to main (branch protection bypass).
+# With a ruleset on main, the push must be allowed through: on a personal repo, add a write deploy
+# key as the README_DEPLOY_KEY secret and put "Deploy keys" on the bypass list; on an org repo,
+# bypass the GitHub Actions app instead and leave the secret unset.
 name: Rebuild README
 on:
   push:
@@ -15,6 +17,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          ssh-key: ${{ secrets.README_DEPLOY_KEY }}
       - uses: actions/setup-node@v4
         with:
           node-version: 22
