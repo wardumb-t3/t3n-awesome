@@ -4,13 +4,13 @@
   "title": "Awesome Trusted AI registry entry",
   "type": "object",
   "additionalProperties": false,
-  "required": ["id", "name", "type", "summary", "url", "pillars", "license", "badge", "added"],
+  "required": ["id", "name", "type", "summary", "url", "pillars", "badge", "added"],
   "properties": {
     "id": { "type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$", "description": "Must equal the file name without .yml" },
     "name": { "type": "string", "minLength": 2, "maxLength": 60 },
     "type": { "enum": ["agent", "workflow", "tool", "demo", "learn"] },
     "summary": { "type": "string", "minLength": 20, "maxLength": 200, "description": "One sentence. Lead with what the agent can do safely." },
-    "url": { "type": "string", "format": "uri", "description": "Repo, or the canonical page for learn entries" },
+    "url": { "type": "string", "format": "uri", "description": "Repo, docs or product page" },
     "demo_url": { "type": ["string", "null"], "format": "uri" },
     "pillars": {
       "type": "array",
@@ -26,7 +26,7 @@
       "items": { "type": "string" },
       "description": "Which T3N capabilities the entry uses, e.g. tenant-contract, vault, sealed-maps, http-placeholders, egress-grant, delegation, agent-credits, t3n-sdk"
     },
-    "license": { "type": "string", "description": "SPDX identifier, or 'spec' for standards documents" },
+    "license": { "type": "string", "description": "Optional. SPDX identifier for open-source projects, or Proprietary" },
     "badge": {
       "enum": ["built-by-t3n", "secured-on-t3n", "none"],
       "description": "secured-on-t3n is granted by maintainers after verification; submitters use none"

@@ -48,7 +48,7 @@ function checked(text) {
 
 function read() {
   const f = parseForm(process.env.ISSUE_BODY ?? '');
-  const url = (f['Repository URL'] ?? '').replace(/\.git$/, '').replace(/\/$/, '');
+  const url = (f['Link'] ?? f['Repository URL'] ?? '').trim().replace(/\.git$/, '').replace(/\/$/, '');
   const type = (f['Type'] ?? '').toLowerCase();
   const section = SECTIONS.find((s) => s.type === type);
   const entry = {
@@ -57,24 +57,28 @@ function read() {
     section,
     summary: (f['One-sentence summary'] ?? '').replace(/\s+/g, ' ').trim(),
     pillars: checked(f['Security controls it demonstrates']).filter((p) => PILLARS.includes(p)),
-    license: (f['License (SPDX)'] ?? '').trim(),
+    license: (f['License (optional)'] ?? f['License (SPDX)'] ?? '').trim(),
     demo: (f['Demo link (video, GIF or live URL)'] ?? '').trim(),
     builtWithT3n: checked(f['Confirm']).some((c) => /built with T3N/i.test(c)),
   };
 
   const problems = [];
   if (!entry.name) problems.push('**Name** is empty.');
-  if (!REPO_URL.test(url)) problems.push('**Repository URL** must look like `https://github.com/owner/repo`.');
+  if (!/^https:\/\/\S+$/.test(url)) problems.push('**Link** must be an https URL.');
   if (!section) problems.push('**Type** is missing.');
   if (!entry.summary) problems.push('**One-sentence summary** is empty.');
   if (!entry.pillars.length) problems.push('Tick at least one **security control**.');
-  if (!entry.license) problems.push('**License** is empty.');
   if (!entry.builtWithT3n) problems.push('The **built with T3N** box isn\'t ticked. Only projects built with T3N are accepted.');
   if (entry.demo && !/^https:\/\/\S+$/.test(entry.demo)) problems.push('**Demo link** must be an https URL.');
   // GitHub owner/repo names are case-insensitive.
   const existing = loadEntries().find((e) => e.data.url.toLowerCase() === url.toLowerCase());
   if (existing) problems.push(`This repo is already listed as \`${existing.data.id}\`.`);
   if (problems.length) stop(`I couldn't turn this into an entry:\n\n${problems.map((p) => `- ${p}`).join('\n')}`);
+  if (!REPO_URL.test(url)) {
+    writeFileSync(COMMENT, "Thanks! This link isn't a public GitHub repo, so I can't check it for T3N automatically. A maintainer will review it and add the entry by hand.\n");
+    output('ok', 'false');
+    process.exit(0);
+  }
   return entry;
 }
 
@@ -113,7 +117,7 @@ if (command === 'parse') {
     pillars: entry.pillars,
     runtime: 't3n',
     t3n_features: found.features,
-    license: entry.license,
+    ...(entry.license && { license: entry.license }),
     badge: 'none',
     ...(process.env.ISSUE_AUTHOR && { maintainers: [`@${process.env.ISSUE_AUTHOR}`] }),
     ...(entry.section.type === 'workflow' && workflow && {
@@ -145,8 +149,7 @@ if (command === 'parse') {
       '',
       '### Maintainer checklist',
       '',
-      '- [ ] The project does what the summary says, and its README explains how to run it',
-      '- [ ] The license is OSI-approved',
+      '- [ ] The project does what the summary says, and developers can try it or learn from it',
       '- [ ] Add `business_function`, `pain`, `protects` and `flow` if it should have a full Agent Directory card',
       '',
       'Pull requests opened by this bot don\'t trigger CI, but the entry was validated before it was opened.',

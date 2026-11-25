@@ -25,11 +25,11 @@ after merge. To check locally first, run `npm install && npm run validate`.
   project itself must use it.
 - ✅ It solves an agent security or governance problem: identity, delegation, privacy, spend
   control, egress control, human-in-the-loop or audit.
-- ✅ It's open source under an OSI-approved license, in a public repo, with a README that says how
-  to run it.
+- ✅ Developers can try it or learn from it: a public repo, docs, a demo or a product page that
+  explains what it does and how to use it. Open source is welcome but not required.
 - ✅ It works today. Demos need a video, GIF or live URL.
 - ✅ The summary says what the agent can do safely, in one sentence, without marketing adjectives.
-- ❌ Not built on T3N, closed source, paywalled, abandoned (no commits in 12 months), or a
+- ❌ Not built on T3N, nothing a developer can try or read, abandoned (no commits in 12 months), or a
   marketing page.
 
 New to T3N? Start with the [ADK quickstart](https://docs.terminal3.io/developers/adk/get-started/quickstart)

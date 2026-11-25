@@ -17,15 +17,16 @@ prove afterwards what it did and who allowed it.
 
 Every entry is built on [T3N](https://docs.terminal3.io/?ref=awesome), so its sensitive work runs
 inside a Trusted Execution Environment (TEE): hardware-isolated code that neither the agent, the
-app developer nor the server operator can read into. Every entry is open source and reviewed.
+app developer nor the server operator can read into. Every entry is reviewed and maintained by
+the community or their code-owners.
 
 ## Contents
 
 - [🚀 Start here](#-start-here)
-- [🎬 Demos](#-demos) — end-to-end apps you can run
+- [🎬 Demos](#-demos) — end-to-end apps you can run, fork or modify
 - [🔐 Workflows](#-workflows) — confidential functions that run sealed in the enclave
 - [🧰 Tools](#-tools) — SDKs, scanners, CLIs, MCP servers
-- [🤖 Agents](#-agents) — agents you can use today
+- [🤖 Agents](#-agents) — trusted agents you can use today
 - [📚 Learn](#-learn) — guides for building on T3N
 - [🧩 Use cases](use-cases/) — problem → pattern → code
 - [🛑 Agent Threat Catalogue](threats/) — what goes wrong, and which entry stops it
@@ -56,7 +57,7 @@ Tags such as `privacy` or `spend-control` name the security control an entry dem
 
 ## 🎬 Demos
 
-End-to-end apps you can run.
+End-to-end apps you can run, fork or modify.
 
 - [Safe Flight Booking for Muse](https://github.com/wardumb-t3/safe-flight-booking-muse) ![Built by T3N](https://img.shields.io/badge/built_by-T3N-0b2a4a) — Meta's Muse agent books real flights without ever seeing the passport. It's scanned on the phone, sealed to the user's vault and sent to Duffel from the enclave. `privacy` `delegation` · rust, wasm, node, vite
 - [Spend-Controlled Call-Centre Agent](https://github.com/Terminal-3/adk-circle-call-centre-agent-demo) ![Built by T3N](https://img.shields.io/badge/built_by-T3N-0b2a4a) — Support agent buys paid lookups over x402/USDC with an allowlist, per-call cap, session budget, tamper-evident ledger and one-click revoke. `spend-control` `audit` · typescript, rust, wasm, nextjs
@@ -76,7 +77,7 @@ SDKs, scanners, CLIs and MCP servers.
 
 ## 🤖 Agents
 
-Agents you can use today.
+Trusted agents you can use today.
 
 _Nothing here yet. [Be the first →](CONTRIBUTING.md)_
 
