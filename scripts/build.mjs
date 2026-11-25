@@ -53,5 +53,25 @@ if (process.argv.includes('--check')) {
   const feed = { version: 1, entries: [...entries].sort((a, b) => a.id.localeCompare(b.id)) };
   mkdirSync(join(ROOT, 'dist'), { recursive: true });
   writeFileSync(join(ROOT, 'dist', 'registry.json'), JSON.stringify(feed, null, 2) + '\n');
-  console.log(`ok    wrote README.md and dist/registry.json (${entries.length} entries)`);
+  // GitHub Pages fails deployments that have no index page.
+  writeFileSync(
+    join(ROOT, 'dist', 'index.html'),
+    `<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Awesome Trusted AI feed</title>
+<style>body{font:16px/1.5 system-ui,sans-serif;max-width:40rem;margin:3rem auto;padding:0 1rem;color:#1b1f24;background:#fff}
+@media (prefers-color-scheme:dark){body{color:#e6edf3;background:#0d1117}a{color:#4493f8}}</style>
+</head>
+<body>
+<h1>Awesome Trusted AI feed</h1>
+<p>${entries.length} entries, generated from the registry. Machine-readable feed: <a href="registry.json">registry.json</a>.</p>
+<p><a href="https://agents.terminal3.io/?ref=awesome">Browse on the Agent Directory</a></p>
+</body>
+</html>
+`,
+  );
+  console.log(`ok    wrote README.md, dist/registry.json and dist/index.html (${entries.length} entries)`);
 }
