@@ -23,9 +23,10 @@ for (const { dir, file, path, data } of loadEntries()) {
   const expected = SECTIONS.find((s) => s.dir === dir).type;
   if (data.type !== expected) errors.push(`${where}: type "${data.type}" belongs in registry/${SECTIONS.find((s) => s.type === data.type).dir}/`);
   if (seenIds.has(data.id)) errors.push(`${where}: duplicate id, also in ${seenIds.get(data.id)}`);
-  if (seenUrls.has(data.url)) errors.push(`${where}: duplicate url, also in ${seenUrls.get(data.url)}`);
+  const urlKey = data.url.toLowerCase();
+  if (seenUrls.has(urlKey)) errors.push(`${where}: duplicate url, also in ${seenUrls.get(urlKey)}`);
   seenIds.set(data.id, where);
-  seenUrls.set(data.url, where);
+  seenUrls.set(urlKey, where);
   // Listing is allowed while a seed repo's license is being added, but it must be visible.
   if (data.license === 'NOASSERTION') warnings.push(`${where}: no license declared yet — add one to the repo before launch`);
 }

@@ -71,7 +71,8 @@ function read() {
   if (!entry.license) problems.push('**License** is empty.');
   if (!entry.builtWithT3n) problems.push('The **built with T3N** box isn\'t ticked. Only projects built with T3N are accepted.');
   if (entry.demo && !/^https:\/\/\S+$/.test(entry.demo)) problems.push('**Demo link** must be an https URL.');
-  const existing = loadEntries().find((e) => e.data.url === url);
+  // GitHub owner/repo names are case-insensitive.
+  const existing = loadEntries().find((e) => e.data.url.toLowerCase() === url.toLowerCase());
   if (existing) problems.push(`This repo is already listed as \`${existing.data.id}\`.`);
   if (problems.length) stop(`I couldn't turn this into an entry:\n\n${problems.map((p) => `- ${p}`).join('\n')}`);
   return entry;
