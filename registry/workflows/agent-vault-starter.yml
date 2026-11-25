@@ -7,7 +7,6 @@ pillars: [privacy, credentials]
 stack: [rust, wasm]
 runtime: t3n
 t3n_features: [tenant-contract, sealed-maps]
-license: NOASSERTION
 badge: built-by-t3n
 business_function: identity-kyc
 pain: Agents need to know facts about a customer, not the customer's raw data.

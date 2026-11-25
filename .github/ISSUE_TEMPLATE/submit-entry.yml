@@ -13,7 +13,10 @@ body:
     validations: { required: true }
   - type: input
     id: url
-    attributes: { label: Repository URL, placeholder: "https://github.com/you/your-repo" }
+    attributes:
+      label: Link
+      description: A public GitHub repo is checked for T3N automatically. Docs or product pages are reviewed by a maintainer.
+      placeholder: "https://github.com/you/your-repo"
     validations: { required: true }
   - type: dropdown
     id: type
@@ -42,8 +45,7 @@ body:
         - label: credentials
   - type: input
     id: license
-    attributes: { label: License (SPDX), placeholder: MIT }
-    validations: { required: true }
+    attributes: { label: License (optional), description: "SPDX id if open source (e.g. MIT, Apache-2.0), or Proprietary." }
   - type: input
     id: demo
     attributes: { label: Demo link (video, GIF or live URL), description: Required for demos. }
@@ -52,7 +54,7 @@ body:
     attributes:
       label: Confirm
       options:
-        - label: It's open source, public, and its README explains how to run it.
+        - label: Developers can try it or learn from it (public repo, docs, demo or product page).
           required: true
         - label: It's built with T3N.
           required: true

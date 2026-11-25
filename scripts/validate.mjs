@@ -27,8 +27,6 @@ for (const { dir, file, path, data } of loadEntries()) {
   if (seenUrls.has(urlKey)) errors.push(`${where}: duplicate url, also in ${seenUrls.get(urlKey)}`);
   seenIds.set(data.id, where);
   seenUrls.set(urlKey, where);
-  // Listing is allowed while a seed repo's license is being added, but it must be visible.
-  if (data.license === 'NOASSERTION') warnings.push(`${where}: no license declared yet — add one to the repo before launch`);
 }
 
 for (const w of warnings) console.warn(`warn  ${w}`);

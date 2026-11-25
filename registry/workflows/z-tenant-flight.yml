@@ -7,7 +7,6 @@ pillars: [privacy, egress-control]
 stack: [rust, wasm, typescript]
 runtime: t3n
 t3n_features: [tenant-contract, sealed-maps, outbound-http, http-placeholders, t3n-sdk, egress-grant, agent-credits]
-license: NOASSERTION
 badge: built-by-t3n
 business_function: travel-expense
 pain: A booking API needs the traveller's identity, but the agent calling it shouldn't hold it.

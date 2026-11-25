@@ -8,10 +8,10 @@ export const REGISTRY = join(ROOT, 'registry');
 
 // Folder name ↔ entry type. The folder is what contributors see; the type is what the Directory syncs.
 export const SECTIONS = [
-  { dir: 'demos', type: 'demo', title: '🎬 Demos', blurb: 'End-to-end apps you can run.' },
+  { dir: 'demos', type: 'demo', title: '🎬 Demos', blurb: 'End-to-end apps you can run, fork or modify.' },
   { dir: 'workflows', type: 'workflow', title: '🔐 Workflows', blurb: 'Confidential functions that run sealed in the enclave. Deploy or fork.' },
   { dir: 'tools', type: 'tool', title: '🧰 Tools', blurb: 'SDKs, scanners, CLIs and MCP servers.' },
-  { dir: 'agents', type: 'agent', title: '🤖 Agents', blurb: 'Agents you can use today.' },
+  { dir: 'agents', type: 'agent', title: '🤖 Agents', blurb: 'Trusted agents you can use today.' },
   { dir: 'learn', type: 'learn', title: '📚 Learn', blurb: 'Guides and tutorials for building on T3N.' },
 ];
 

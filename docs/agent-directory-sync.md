@@ -49,7 +49,7 @@ CREATE TABLE public.resources (           -- written only by the sync-registry f
   source_url      text NOT NULL,
   demo_url        text,
   stack           text[] NOT NULL DEFAULT '{}',
-  license         text NOT NULL,
+  license         text,                   -- optional: SPDX id or Proprietary
   tier            trust_tier NOT NULL DEFAULT 'community',
   wasm_sha256     text, wit_world text, contract_version text,
   did             text,

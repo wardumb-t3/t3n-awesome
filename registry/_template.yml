@@ -6,13 +6,13 @@ id: my-entry                      # lowercase-with-dashes
 name: My Entry
 type: workflow                    # demo | workflow | tool | agent | learn
 summary: One sentence that leads with what the agent can do safely, not with adjectives.
-url: https://github.com/you/your-repo
+url: https://github.com/you/your-repo   # repo, docs or product page
 demo_url: null                    # optional: video, GIF or live URL (required for demos)
 pillars: [privacy]                # identity | delegation | privacy | spend-control | egress-control | human-in-loop | audit | credentials
 stack: [rust, wasm]
 runtime: t3n                      # required: entries must be built on T3N
 t3n_features: [tenant-contract]   # which T3N parts it uses: tenant-contract, vault, sealed-maps, http-placeholders, egress-grant, delegation, agent-credits, t3n-sdk
-license: MIT                      # SPDX id of your repo's license (OSI-approved)
+license: MIT                      # optional: SPDX id if open source, or Proprietary
 badge: none                       # maintainers set secured-on-t3n after verification
 maintainers: ["@your-github-handle"]
 
