@@ -1,4 +1,6 @@
-# Publishes dist/registry.json to GitHub Pages: the feed the Agent Directory syncs from.
+# Publishes dist/ (registry.json + index.html) to GitHub Pages: the feed the Agent Directory syncs from.
+# Build and deploy are separate jobs, as in GitHub's Pages template, so the artifact is fully
+# registered before deploy-pages looks for it.
 name: Publish feed
 on:
   push:
@@ -10,13 +12,10 @@ permissions:
   id-token: write
 concurrency:
   group: pages
-  cancel-in-progress: true
+  cancel-in-progress: false
 jobs:
-  publish:
+  build:
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deploy.outputs.page_url }}
     steps:
       - uses: actions/checkout@v6
       - uses: actions/setup-node@v6
@@ -25,8 +24,16 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run validate && npm run build
+      - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v5
         with:
           path: dist
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
       - id: deploy
         uses: actions/deploy-pages@v5
