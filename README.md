@@ -59,7 +59,7 @@ Tags such as `privacy` or `spend-control` name the security control an entry dem
 
 End-to-end apps you can run.
 
-- [Safe Flight Booking for Muse](https://github.com/wardumb-t3/safe-flight-booking-muse) ![Built by T3N](https://img.shields.io/badge/built_by-T3N-0b2a4a) — Meta's Muse agent books real flights without ever seeing the passport — scanned on the phone, sealed to the user's vault, sent to Duffel from the enclave. `privacy` `delegation` · rust, wasm, node, vite
+- [Safe Flight Booking for Muse](https://github.com/wardumb-t3/safe-flight-booking-muse) ![Built by T3N](https://img.shields.io/badge/built_by-T3N-0b2a4a) — Meta's Muse agent books real flights without ever seeing the passport. It's scanned on the phone, sealed to the user's vault and sent to Duffel from the enclave. `privacy` `delegation` · rust, wasm, node, vite
 - [Spend-Controlled Call-Centre Agent](https://github.com/Terminal-3/adk-circle-call-centre-agent-demo) ![Built by T3N](https://img.shields.io/badge/built_by-T3N-0b2a4a) — Support agent buys paid lookups over x402/USDC with an allowlist, per-call cap, session budget, tamper-evident ledger and one-click revoke. `spend-control` `audit` · typescript, rust, wasm, nextjs
 
 ## 🔐 Workflows
