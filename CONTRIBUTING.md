@@ -35,9 +35,6 @@ after merge. To check locally first, run `npm install && npm run validate`.
 New to T3N? Start with the [ADK quickstart](https://docs.terminal3.io/developers/adk/get-started/quickstart)
 and fork [Agent Vault Starter](https://github.com/Terminal-3/agent-vault-starter).
 
-**Ecosystem & Standards** is curated by maintainers as background reading and isn't open for
-submissions. To suggest a standard, open a discussion.
-
 ## Badges
 
 | Badge | How to get it |

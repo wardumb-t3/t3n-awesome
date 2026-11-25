@@ -27,7 +27,6 @@ app developer nor the server operator can read into. Every entry is open source 
 - [🧰 Tools](#-tools) — SDKs, scanners, CLIs, MCP servers
 - [🤖 Agents](#-agents) — agents you can use today
 - [📚 Learn](#-learn) — guides for building on T3N
-- [🌐 Ecosystem & Standards](#-ecosystem--standards)
 - [🧩 Use cases](use-cases/) — problem → pattern → code
 - [🛑 Agent Threat Catalogue](threats/) — what goes wrong, and which entry stops it
 
@@ -83,23 +82,9 @@ _Nothing here yet. [Be the first →](CONTRIBUTING.md)_
 
 ## 📚 Learn
 
-Guides for building on T3N.
+Guides and tutorials for building on T3N.
 
-- [Placeholders in Outbound Calls](https://docs.terminal3.io/developers/adk/tips/placeholders-outbound-calls) ![Built by T3N](https://img.shields.io/badge/built_by-T3N-0b2a4a) — How a workflow calls a third-party API with the user's data filled in inside the enclave, so the agent never handles the values. `privacy` `egress-control`
-- [T3N ADK Quickstart](https://docs.terminal3.io/developers/adk/get-started/quickstart) ![Built by T3N](https://img.shields.io/badge/built_by-T3N-0b2a4a) — Connect to T3N, create an organisation and invoke your first enclave workflow from TypeScript — the starting point for everything in this list. `privacy` `delegation`
-- [Write, Build & Register a Workflow](https://docs.terminal3.io/developers/adk/get-started/walkthrough/write-contract) ![Built by T3N](https://img.shields.io/badge/built_by-T3N-0b2a4a) — Step-by-step walkthrough — write a Rust workflow, build it to WASM, register it and invoke it from an agent. `privacy`
-
-## 🌐 Ecosystem & Standards
-
-The open standards T3N builds on. Curated by maintainers as background reading.
-
-- [Agent Payments Protocol (AP2)](https://github.com/google-agentic-commerce/AP2) — Protocol for agent-initiated payments built on signed mandates that prove what the user authorised. `spend-control` `delegation` `audit`
-- [Agent2Agent (A2A) Protocol](https://github.com/a2aproject/A2A) — Open protocol for agents to discover each other and exchange tasks, including agent cards and authentication. `identity`
-- [MCP Authorization](https://modelcontextprotocol.io/specification/draft/basic/authorization) — The Model Context Protocol's OAuth-based authorization spec — how agents get scoped access to MCP servers. `identity` `delegation`
-- [OpenID for Verifiable Presentations](https://openid.net/specs/openid-4-verifiable-presentations-1_0.html) — How a holder presents verifiable credentials to a verifier — the presentation layer T3N's credential flows build on. `credentials` `identity`
-- [W3C Decentralized Identifiers](https://www.w3.org/TR/did-core/) — The DID standard behind agent and user identities on T3N — identifiers the subject controls, with no central registry. `identity`
-- [W3C Verifiable Credentials 2.0](https://www.w3.org/TR/vc-data-model-2.0/) — The W3C data model for tamper-evident credentials that can be checked without calling the issuer. `credentials`
-- [x402](https://github.com/coinbase/x402) — HTTP 402-based payments standard that lets agents pay for API calls with stablecoins, per request. `spend-control`
+_Nothing here yet. [Be the first →](CONTRIBUTING.md)_
 
 <!-- registry:end -->
 

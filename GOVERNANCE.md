@@ -23,5 +23,4 @@ an existing maintainer. The goal is for at least one maintainer to be from outsi
 ## Scope
 
 Every entry must be built on T3N; that's what this list is for. Within that, entries are judged on
-merit, and Terminal 3 entries meet the same bar as everyone else's. The Ecosystem & Standards
-section is the one exception: maintainers curate it as background reading.
+merit, and Terminal 3 entries meet the same bar as everyone else's.

@@ -76,8 +76,8 @@
   "allOf": [
     { "if": { "properties": { "type": { "const": "agent" } } }, "then": { "required": ["did", "business_function"] } },
     {
-      "$comment": "Submissions must be built on T3N. Only maintainer-curated learn entries may point elsewhere.",
-      "if": { "properties": { "type": { "enum": ["agent", "workflow", "tool", "demo"] } } },
+      "$comment": "Every entry must be built on T3N.",
+      "if": { "properties": { "type": { "enum": ["agent", "workflow", "tool", "demo", "learn"] } } },
       "then": {
         "required": ["runtime", "t3n_features"],
         "properties": { "runtime": { "const": "t3n" }, "t3n_features": { "type": "array", "minItems": 1 } }
