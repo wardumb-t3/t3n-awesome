@@ -61,6 +61,23 @@ body:
         - label: human-in-loop
         - label: audit
         - label: credentials
+  - type: checkboxes
+    id: works_with
+    attributes:
+      label: Works with (optional)
+      description: AIs that can use it today. Ticking any makes a workflow or tool a Skill on the Agent Directory.
+      options:
+        - label: Any agent built on T3 Network
+        - label: Claude
+        - label: ChatGPT
+        - label: Gemini
+        - label: Muse
+        - label: Copilot
+  - type: input
+    id: uses
+    attributes:
+      label: Shows these entries (demos only)
+      description: Ids of the listed entries this demo uses, comma-separated, e.g. z-tenant-flight, private-doc-scanner.
   - type: input
     id: license
     attributes: { label: License (optional), description: "SPDX id if open source (e.g. MIT, Apache-2.0), or Proprietary." }

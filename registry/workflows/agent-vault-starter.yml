@@ -4,6 +4,7 @@ type: workflow
 summary: The store / check / forget template — agents ask "over 18?" or "KYC verified?" and get true/false, never the underlying record. Best first workflow.
 url: https://github.com/Terminal-3/agent-vault-starter
 pillars: [privacy, credentials]
+works_with: [any-t3n-agent]
 stack: [rust, wasm]
 runtime: t3n
 t3n_features: [tenant-contract, sealed-maps]

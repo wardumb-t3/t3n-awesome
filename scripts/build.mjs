@@ -13,14 +13,16 @@ const BADGES = {
 };
 
 const entries = loadEntries().map((e) => e.data);
+const nameOf = new Map(entries.map((e) => [e.id, e.name]));
 
 function line(e) {
   const tags = e.pillars.map((p) => `\`${p}\``).join(' ');
   const stack = e.stack?.length ? ` · ${e.stack.join(', ')}` : '';
   const source = e.repo ? ` · [Source](${e.repo})` : '';
+  const uses = e.uses?.length ? ` · Uses ${e.uses.map((id) => nameOf.get(id) ?? id).join(', ')}` : '';
   const demo = e.demo_url ? ` · [Live demo](${e.demo_url})` : '';
   const badge = BADGES[e.badge] ? ` ${BADGES[e.badge]}` : '';
-  return `- [${e.name}](${e.url})${badge} — ${e.summary} ${tags}${stack}${source}${demo}`;
+  return `- [${e.name}](${e.url})${badge} — ${e.summary} ${tags}${stack}${uses}${source}${demo}`;
 }
 
 function renderBlock() {

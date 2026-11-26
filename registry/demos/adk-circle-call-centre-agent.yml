@@ -3,6 +3,7 @@ name: Spend-Controlled Call-Centre Agent
 type: demo
 summary: Support agent buys paid lookups over x402/USDC with an allowlist, per-call cap, session budget, tamper-evident ledger and one-click revoke.
 url: https://github.com/Terminal-3/adk-circle-call-centre-agent-demo
+uses: [spend-guard]
 pillars: [spend-control, audit]
 stack: [typescript, rust, wasm, nextjs]
 runtime: t3n

@@ -29,13 +29,26 @@ Directory "List your agent" form
 4. **Feed → Directory.** The Directory fetches the feed and caches it for an hour, so a merged entry
    appears within the hour. No database changes are needed.
 
+## What the Directory shows
+
+The Directory speaks to business users, so it groups entries by what they get, not how they're built:
+
+| Registry | Directory |
+| --- | --- |
+| `type: agent` | **Agents**: ready-made agents that do the job |
+| `type: workflow` or `tool` **with `works_with`** | **Skills**: things the AI you already use can call |
+| `type: workflow` or `tool` without `works_with` | Not shown (developer material, repo only) |
+| `type: demo` | Not listed on its own. Shown as "See it in action" on each entry in its `uses` |
+| `type: learn` | Not shown (repo only) |
+
 ## Field mapping
 
 | Registry | Directory |
 | --- | --- |
 | `name`, `summary` | card title, one-liner |
 | `url`, `repo` | "Visit" and "Source" links |
-| `type` | the kind chip (Agent, Workflow, Tool, Demo, Learn) |
+| `type`, `works_with` | Agents or Skills tab, and the "Works with" row |
+| `uses` (demos) | "See it in action" on the entries a demo uses |
 | `business_function` | category (`categories.slug`) |
 | `pain` | the business problem |
 | `provider.name` | "by …" |
