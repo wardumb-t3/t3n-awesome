@@ -11,6 +11,10 @@ demo_url: null                    # optional: video, GIF or live URL (required f
 pillars: [privacy]                # identity | delegation | privacy | spend-control | egress-control | human-in-loop | audit | credentials
 stack: [rust, wasm]
 works_with: [any-t3n-agent]       # optional: AIs that can use it (any-t3n-agent | claude | chatgpt | gemini | muse | copilot); makes it a Skill on the Agent Directory
+# mcp:                            # optional: an MCP server YOU host and run, so people can add this to their AI
+#   url: https://mcp.example.com/your-skill
+#   hosted_by: Your name or company
+#   source: https://github.com/you/your-mcp-server   # strongly recommended, for review
 # uses: [some-entry-id]           # demos only: the entries this demo shows in action
 runtime: t3n                      # t3n (required except for Learn) | other
 t3n_features: [tenant-contract]   # which T3N parts it uses: tenant-contract, vault, sealed-maps, http-placeholders, egress-grant, delegation, agent-credits, t3n-sdk

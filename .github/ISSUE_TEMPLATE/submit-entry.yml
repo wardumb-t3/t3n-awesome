@@ -74,6 +74,17 @@ body:
         - label: Muse
         - label: Copilot
   - type: input
+    id: mcp_url
+    attributes:
+      label: MCP server URL (optional)
+      description: Lets people add it to Claude, ChatGPT and other AIs. You host and run this server; the list only links to it.
+      placeholder: "https://mcp.example.com/your-skill"
+  - type: input
+    id: mcp_source
+    attributes:
+      label: MCP server source code (optional)
+      description: Where reviewers can read the server's code. Strongly recommended; see CONTRIBUTING.md.
+  - type: input
     id: uses
     attributes:
       label: Shows these entries (demos only)

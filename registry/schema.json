@@ -26,6 +26,17 @@
       "items": { "enum": ["any-t3n-agent", "claude", "chatgpt", "gemini", "muse", "copilot"] },
       "description": "AIs that can use this entry today. Listing it makes a workflow or tool a Skill on the Agent Directory."
     },
+    "mcp": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["url", "hosted_by"],
+      "description": "An MCP server for this entry, hosted and run by whoever submitted it, never by the list",
+      "properties": {
+        "url": { "type": "string", "format": "uri", "pattern": "^https://" },
+        "hosted_by": { "type": "string", "minLength": 1 },
+        "source": { "type": "string", "format": "uri", "description": "The server's source code, for review" }
+      }
+    },
     "demo_url": { "type": ["string", "null"], "format": "uri" },
     "pillars": {
       "type": "array",
@@ -85,6 +96,7 @@
   "allOf": [
     { "if": { "properties": { "type": { "const": "agent" } } }, "then": { "required": ["business_function"] } },
     { "if": { "properties": { "type": { "not": { "const": "demo" } } } }, "then": { "not": { "required": ["uses"] } } },
+    { "if": { "properties": { "type": { "enum": ["demo", "learn"] } } }, "then": { "not": { "required": ["mcp"] } } },
     {
       "$comment": "Demos, workflows, tools and agents must be built on T3N. Learn resources may cover any stack.",
       "if": { "properties": { "type": { "enum": ["agent", "workflow", "tool", "demo"] } } },

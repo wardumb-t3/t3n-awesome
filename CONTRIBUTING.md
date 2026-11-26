@@ -55,6 +55,23 @@ and fork [Agent Vault Starter](https://github.com/Terminal-3/agent-vault-starter
 Leave `badge: none` in your submission. To be considered for **Secured on T3N**, ask for
 verification in your pull request.
 
+## Offering it over MCP
+
+An MCP server lets people add your agent or skill to the AI they already use (Claude, ChatGPT,
+Cursor and others) from its Agent Directory page. **You host and run the server; the list and
+Terminal 3 only link to it.** List it in the `mcp` field (or the form's MCP fields), and:
+
+- **It only forwards calls to T3N.** Sensitive data stays in the enclave; the server sees what the
+  AI sends and what comes back, nothing more.
+- **It never asks people for sensitive data** in the chat. If it needs a user's data, that comes from
+  their T3N vault through delegation, not from the conversation.
+- **Its code is public** (`mcp.source`), so reviewers can check the two rules above. Entries without
+  it can be listed, but a maintainer may decline the MCP link.
+- **It's yours to keep running.** A dead server gets its MCP link removed from the entry.
+
+The page labels it "MCP server hosted by <you>". It doesn't change the entry's badge: **Secured on
+T3N** is about the enclave code only.
+
 ## Writing a good entry
 
 - **`summary`**: lead with the outcome. "Agent books flights without seeing the passport" beats

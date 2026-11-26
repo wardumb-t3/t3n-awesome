@@ -9,6 +9,7 @@
 - [ ] The project is built on T3N and `t3n_features` lists the parts it uses (not needed for Learn entries)
 - [ ] Developers can try it or learn from it (public repo, docs, demo or product page)
 - [ ] The summary says what the agent can do safely, without marketing adjectives
+- [ ] If it lists an MCP server: I host and run it, and its code only forwards calls to T3N
 - [ ] I'm requesting the **Secured on T3N** badge (workflows only; fill in `contract.wasm_sha256` and the tag to build from)
 
 ## How did you test it?

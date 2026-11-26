@@ -94,6 +94,8 @@ function read() {
     repo: REPO_URL.test(url) ? url : REPO_URL.test(repoField) ? repoField : '',
     fromDirectory: body.includes(DIRECTORY_MARKER),
     worksWith: checked(f['Works with (optional)']).map((c) => WORKS_WITH[c]).filter(Boolean),
+    mcpUrl: (f['MCP server URL (optional)'] ?? '').trim(),
+    mcpSource: (f['MCP server source code (optional)'] ?? '').trim(),
     uses: (f['Shows these entries (demos only)'] ?? '').split(/[\s,]+/).map((s) => s.trim()).filter(Boolean),
   };
 
@@ -108,6 +110,10 @@ function read() {
   if (repoField && !REPO_URL.test(repoField)) problems.push('**Source code** must look like `https://github.com/owner/repo`.');
   if (businessFunction && !entry.businessFunction) problems.push('**Business function** isn\'t one of the listed options.');
   if (section?.type === 'agent' && !entry.businessFunction) problems.push('Agents need a **Business function**.');
+  if (entry.mcpUrl && !/^https:\/\/\S+$/.test(entry.mcpUrl)) problems.push('**MCP server URL** must be an https URL.');
+  if (entry.mcpSource && !/^https:\/\/\S+$/.test(entry.mcpSource)) problems.push('**MCP server source code** must be an https URL.');
+  if ((entry.mcpUrl || entry.mcpSource) && ['demo', 'learn'].includes(section?.type)) problems.push('Only agents, workflows and tools can have an **MCP server**.');
+  if (entry.mcpSource && !entry.mcpUrl) problems.push('**MCP server source code** needs an **MCP server URL** too.');
   if (entry.uses.length && section?.type !== 'demo') problems.push('Only demos can list **entries they show**.');
   const ids = new Set(loadEntries().map((e) => e.data.id));
   const unknown = entry.uses.filter((id) => !ids.has(id));
@@ -174,6 +180,13 @@ if (command === 'parse') {
     ...(entry.businessFunction && { business_function: entry.businessFunction }),
     ...(entry.pain && { pain: entry.pain }),
     ...(entry.provider && { provider: { name: entry.provider } }),
+    ...(entry.mcpUrl && {
+      mcp: {
+        url: entry.mcpUrl,
+        hosted_by: entry.provider || entry.name,
+        ...(entry.mcpSource && { source: entry.mcpSource }),
+      },
+    }),
     ...(entry.section.type === 'workflow' && workflow && {
       contract: { wit_world: workflow.wit_world, ...(workflow.version && { version: workflow.version }) },
     }),
@@ -204,6 +217,11 @@ if (command === 'parse') {
       '### Maintainer checklist',
       '',
       '- [ ] The project does what the summary says, and developers can try it or learn from it',
+      ...(entry.mcpUrl
+        ? [
+            `- [ ] MCP server (${entry.mcpUrl}): it's run by the submitter, its code${entry.mcpSource ? '' : ' (not provided yet)'} only forwards calls to T3N, and it never asks users for sensitive data`,
+          ]
+        : []),
       '- [ ] Add `protects` and `flow` (and `business_function`, `pain` if missing) for a full Agent Directory card',
       '',
       'Pull requests opened by this bot don\'t trigger CI, but the entry was validated before it was opened.',
