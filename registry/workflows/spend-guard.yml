@@ -1,7 +1,7 @@
 id: spend-guard
 name: Spend Guard
 type: workflow
-summary: Lets an agent pay for services over x402/USDC only within an allowlist, a per-call cap and a session budget; every payment is logged and can be revoked instantly.
+summary: Lets an AI pay for services only to approved payees, within a per-payment cap and a total budget; every payment is logged and can be stopped instantly.
 url: https://github.com/Terminal-3/adk-circle-call-centre-agent-demo/tree/main/contract
 repo: https://github.com/Terminal-3/adk-circle-call-centre-agent-demo
 pillars: [spend-control, audit]
