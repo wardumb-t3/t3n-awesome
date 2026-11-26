@@ -73,6 +73,7 @@ Confidential functions that run sealed in the enclave. Deploy or fork.
 
 SDKs, scanners, CLIs and MCP servers.
 
+- [Only Vault AI](https://github.com/wardumb-t3/only-vault-ai) ![Built by T3N](https://img.shields.io/badge/built_by-T3N-0b2a4a) — A personal data vault any AI (Minds, Muse or your own) can use without seeing the data. It runs only yes/no checks you approve and books with your passport from the enclave. `privacy` `delegation` `human-in-loop` · rust, wasm, typescript, node, vite · [Live demo](https://minds.72-60-43-195.sslip.io/)
 - [Private Doc Scanner](https://github.com/Terminal-3/private-doc-scanner) ![Built by T3N](https://img.shields.io/badge/built_by-T3N-0b2a4a) — On-device OCR for passports, payslips and bank statements — the user confirms fields, only those are sealed to their vault, and enclave checks return pass/fail. `privacy` `credentials` · typescript, rust, wasm, pwa
 
 ## 🤖 Agents

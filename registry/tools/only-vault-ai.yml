@@ -1,0 +1,23 @@
+id: only-vault-ai
+name: Only Vault AI
+type: tool
+summary: A personal data vault any AI (Minds, Muse or your own) can use without seeing the data. It runs only yes/no checks you approve and books with your passport from the enclave.
+url: https://github.com/wardumb-t3/only-vault-ai
+demo_url: https://minds.72-60-43-195.sslip.io/
+pillars: [privacy, delegation, human-in-loop]
+stack: [rust, wasm, typescript, node, vite]
+runtime: t3n
+t3n_features: [tenant-contract, vault, sealed-maps, delegation, agent-credits, t3n-sdk, http-placeholders]
+license: MIT
+badge: built-by-t3n
+business_function: identity-kyc
+pain: Personal AIs need your age, nationality or passport to act for you, but anything pasted into a chat can be logged, kept or leaked.
+protects: Passport and identity details never reach the AI, its company or the node operator; the AI only gets yes/no answers and results.
+flow:
+  source: Passport sealed in the user's own vault (or a sample persona on testnet)
+  enclave: Runs the checks the user approved, or fills a flight booking
+  agent: Gets one yes or no per check, or a booking reference
+provider:
+  name: Terminal 3
+  website: https://terminal3.io
+added: 2026-11-26
