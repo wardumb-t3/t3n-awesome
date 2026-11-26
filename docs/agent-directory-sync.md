@@ -81,8 +81,5 @@ UNION ALL
 2. **Promotion to Recommended** goes through the existing `agent_applications` review. On approval,
    staff create the `agents` row and set `resources.agent_id`; the curated row then replaces the
    community one in `directory_items`.
-3. **Directory → repo.** When an entry is promoted, a pull request sets
-   `directory: { listed: true, agent_id }` on it, and the README shows 🏪.
 
-Not built yet: the `sync-registry` function, the migration above, and the Directory → repo pull
-request job.
+Not built yet: the `sync-registry` function and the migration above.

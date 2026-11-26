@@ -55,12 +55,6 @@
       "required": ["name"],
       "properties": { "name": { "type": "string" }, "website": { "type": "string", "format": "uri" } }
     },
-    "directory": {
-      "type": "object",
-      "additionalProperties": false,
-      "description": "Set by the sync job, never by hand",
-      "properties": { "listed": { "type": "boolean" }, "agent_id": { "type": ["string", "null"] } }
-    },
     "contract": {
       "type": "object",
       "additionalProperties": false,

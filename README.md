@@ -48,7 +48,6 @@ the community or their code-owners.
 | --- | --- |
 | ![Built by T3N](https://img.shields.io/badge/built_by-T3N-0b2a4a) | Made and maintained by the Terminal 3 team |
 | ![Secured on T3N](https://img.shields.io/badge/secured_on-T3N-1f8fbf) | Community entry, **verified**: it runs on T3N, its WASM hash reproduces from source, and two maintainers reviewed it |
-| 🏪 | Recommended on the [Agent Directory](https://agents.terminal3.io/?ref=awesome) |
 
 Tags such as `privacy` or `spend-control` name the security control an entry demonstrates.
 

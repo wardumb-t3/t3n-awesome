@@ -18,9 +18,8 @@ function line(e) {
   const tags = e.pillars.map((p) => `\`${p}\``).join(' ');
   const stack = e.stack?.length ? ` · ${e.stack.join(', ')}` : '';
   const demo = e.demo_url ? ` · [Live demo](${e.demo_url})` : '';
-  const listed = e.directory?.listed ? ' · 🏪 Recommended on Agent Directory' : '';
   const badge = BADGES[e.badge] ? ` ${BADGES[e.badge]}` : '';
-  return `- [${e.name}](${e.url})${badge} — ${e.summary} ${tags}${stack}${demo}${listed}`;
+  return `- [${e.name}](${e.url})${badge} — ${e.summary} ${tags}${stack}${demo}`;
 }
 
 function renderBlock() {
