@@ -8,6 +8,10 @@ Thanks for helping make agents safer. Adding an entry takes about five minutes.
 When a maintainer approves it, a bot checks your repo for T3N usage, writes the entry and opens the
 pull request. You don't need to touch git.
 
+**Not on GitHub?** Business users can apply through the
+[Agent Directory](https://agents.terminal3.io/build?ref=awesome). The Directory files the issue here
+for you.
+
 **The direct way:**
 
 1. Copy [`registry/_template.yml`](registry/_template.yml) to `registry/<folder>/<id>.yml`.

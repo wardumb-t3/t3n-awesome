@@ -24,6 +24,24 @@ body:
       label: Type
       options: [Demo, Workflow, Tool, Agent, Learn]
     validations: { required: true }
+  - type: input
+    id: provider
+    attributes: { label: Built by (optional), description: Person or company behind it. }
+  - type: dropdown
+    id: business_function
+    attributes:
+      label: Business function
+      description: Required for agents. Matches the Agent Directory's categories.
+      options: [Payroll & HR, Finance & Payments, Customer Support, Healthcare, Insurance, Travel & Expense, Identity & KYC, Legal & Compliance, Others]
+  - type: textarea
+    id: pain
+    attributes: { label: Business problem it solves (optional), description: One or two sentences. Max 500 characters. }
+  - type: input
+    id: repo
+    attributes:
+      label: Source code (optional)
+      description: The public GitHub repo, if the Link above isn't one. It's what gets checked for T3N.
+      placeholder: "https://github.com/you/your-repo"
   - type: textarea
     id: summary
     attributes:

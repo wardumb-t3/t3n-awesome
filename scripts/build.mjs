@@ -17,9 +17,10 @@ const entries = loadEntries().map((e) => e.data);
 function line(e) {
   const tags = e.pillars.map((p) => `\`${p}\``).join(' ');
   const stack = e.stack?.length ? ` · ${e.stack.join(', ')}` : '';
+  const source = e.repo ? ` · [Source](${e.repo})` : '';
   const demo = e.demo_url ? ` · [Live demo](${e.demo_url})` : '';
   const badge = BADGES[e.badge] ? ` ${BADGES[e.badge]}` : '';
-  return `- [${e.name}](${e.url})${badge} — ${e.summary} ${tags}${stack}${demo}`;
+  return `- [${e.name}](${e.url})${badge} — ${e.summary} ${tags}${stack}${source}${demo}`;
 }
 
 function renderBlock() {
