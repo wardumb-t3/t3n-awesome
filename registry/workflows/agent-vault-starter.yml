@@ -1,7 +1,7 @@
 id: agent-vault-starter
 name: Agent Vault Starter
 type: workflow
-summary: The store / check / forget template — agents ask "over 18?" or "KYC verified?" and get true/false, never the underlying record. Best first workflow.
+summary: Lets an AI ask yes/no questions about a customer, like "over 18?" or "KYC verified?", and get only true or false, never the record itself.
 url: https://github.com/Terminal-3/agent-vault-starter
 pillars: [privacy, credentials]
 works_with: [any-t3n-agent]

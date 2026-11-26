@@ -65,9 +65,9 @@ End-to-end apps you can run, fork or modify.
 
 Confidential functions that run sealed in the enclave. Deploy or fork.
 
-- [Agent Vault Starter](https://github.com/Terminal-3/agent-vault-starter) ![Built by T3N](https://img.shields.io/badge/built_by-T3N-0b2a4a) — The store / check / forget template — agents ask "over 18?" or "KYC verified?" and get true/false, never the underlying record. Best first workflow. `privacy` `credentials` · rust, wasm
-- [Spend Guard](https://github.com/Terminal-3/adk-circle-call-centre-agent-demo/tree/main/contract) ![Built by T3N](https://img.shields.io/badge/built_by-T3N-0b2a4a) — Lets an agent pay for services over x402/USDC only within an allowlist, a per-call cap and a session budget; every payment is logged and can be revoked instantly. `spend-control` `audit` · rust, wasm · [Source](https://github.com/Terminal-3/adk-circle-call-centre-agent-demo)
-- [Z-Tenant Flight](https://github.com/Terminal-3/z-tenant-flight) ![Built by T3N](https://img.shields.io/badge/built_by-T3N-0b2a4a) — Enclave workflow that searches and books Duffel flights; traveller PII stays in sealed maps and outbound calls are locked to one host. `privacy` `egress-control` · rust, wasm, typescript
+- [Agent Vault Starter](https://github.com/Terminal-3/agent-vault-starter) ![Built by T3N](https://img.shields.io/badge/built_by-T3N-0b2a4a) — Lets an AI ask yes/no questions about a customer, like "over 18?" or "KYC verified?", and get only true or false, never the record itself. `privacy` `credentials` · rust, wasm
+- [Spend Guard](https://github.com/Terminal-3/adk-circle-call-centre-agent-demo/tree/main/contract) ![Built by T3N](https://img.shields.io/badge/built_by-T3N-0b2a4a) — Lets an AI pay for services only to approved payees, within a per-payment cap and a total budget; every payment is logged and can be stopped instantly. `spend-control` `audit` · rust, wasm · [Source](https://github.com/Terminal-3/adk-circle-call-centre-agent-demo)
+- [Z-Tenant Flight](https://github.com/Terminal-3/z-tenant-flight) ![Built by T3N](https://img.shields.io/badge/built_by-T3N-0b2a4a) — Lets an AI search and book flights while the traveller's name, contact and passport details go only to the airline, straight from a sealed enclave. `privacy` `egress-control` · rust, wasm, typescript
 
 ## 🧰 Tools
 
