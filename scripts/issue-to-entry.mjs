@@ -68,12 +68,17 @@ function read() {
   if (!section) problems.push('**Type** is missing.');
   if (!entry.summary) problems.push('**One-sentence summary** is empty.');
   if (!entry.pillars.length) problems.push('Tick at least one **security control**.');
-  if (!entry.builtWithT3n) problems.push('The **built with T3N** box isn\'t ticked. Only projects built with T3N are accepted.');
+  if (!entry.builtWithT3n) problems.push('The **built with T3N** box isn\'t ticked. Demos, workflows, tools and agents must be built with T3N.');
   if (entry.demo && !/^https:\/\/\S+$/.test(entry.demo)) problems.push('**Demo link** must be an https URL.');
   // GitHub owner/repo names are case-insensitive.
   const existing = loadEntries().find((e) => e.data.url.toLowerCase() === url.toLowerCase());
   if (existing) problems.push(`This repo is already listed as \`${existing.data.id}\`.`);
   if (problems.length) stop(`I couldn't turn this into an entry:\n\n${problems.map((p) => `- ${p}`).join('\n')}`);
+  if (entry.section.type === 'learn') {
+    writeFileSync(COMMENT, 'Thanks! Learn resources are reviewed by a maintainer, who will add the entry by hand.\n');
+    output('ok', 'false');
+    process.exit(0);
+  }
   if (!REPO_URL.test(url)) {
     writeFileSync(COMMENT, "Thanks! This link isn't a public GitHub repo, so I can't check it for T3N automatically. A maintainer will review it and add the entry by hand.\n");
     output('ok', 'false');

@@ -27,7 +27,7 @@ the community or their code-owners.
 - [🔐 Workflows](#-workflows) — confidential functions that run sealed in the enclave
 - [🧰 Tools](#-tools) — SDKs, scanners, CLIs, MCP servers
 - [🤖 Agents](#-agents) — trusted agents you can use today
-- [📚 Learn](#-learn) — guides for building on T3N
+- [📚 Learn](#-learn) — how to build safe agentic solutions, workflows and processes
 - [🧩 Use cases](use-cases/) — problem → pattern → code
 - [🛑 Agent Threat Catalogue](threats/) — what goes wrong, and which entry stops it
 
@@ -48,7 +48,6 @@ the community or their code-owners.
 | --- | --- |
 | ![Built by T3N](https://img.shields.io/badge/built_by-T3N-0b2a4a) | Made and maintained by the Terminal 3 team |
 | ![Secured on T3N](https://img.shields.io/badge/secured_on-T3N-1f8fbf) | Community entry, **verified**: it runs on T3N, its WASM hash reproduces from source, and two maintainers reviewed it |
-| 🏪 | Recommended on the [Agent Directory](https://agents.terminal3.io/?ref=awesome) |
 
 Tags such as `privacy` or `spend-control` name the security control an entry demonstrates.
 
@@ -83,7 +82,7 @@ _Nothing here yet. [Be the first →](CONTRIBUTING.md)_
 
 ## 📚 Learn
 
-Guides and tutorials for building on T3N.
+Guides, courses, talks and patterns for building safe agentic solutions, workflows and processes, on any stack.
 
 _Nothing here yet. [Be the first →](CONTRIBUTING.md)_
 

@@ -1,4 +1,4 @@
-# Copy to registry/<folder>/<id>.yml (folders: demos, workflows, tools, agents, learn). Entries must be built on T3N.
+# Copy to registry/<folder>/<id>.yml (folders: demos, workflows, tools, agents, learn). Everything except Learn must be built on T3N.
 # The file name must equal `id`. Delete the optional lines you don't use.
 # Field reference: registry/schema.json
 
@@ -10,7 +10,7 @@ url: https://github.com/you/your-repo   # repo, docs or product page
 demo_url: null                    # optional: video, GIF or live URL (required for demos)
 pillars: [privacy]                # identity | delegation | privacy | spend-control | egress-control | human-in-loop | audit | credentials
 stack: [rust, wasm]
-runtime: t3n                      # required: entries must be built on T3N
+runtime: t3n                      # t3n (required except for Learn) | other
 t3n_features: [tenant-contract]   # which T3N parts it uses: tenant-contract, vault, sealed-maps, http-placeholders, egress-grant, delegation, agent-credits, t3n-sdk
 license: MIT                      # optional: SPDX id if open source, or Proprietary
 badge: none                       # maintainers set secured-on-t3n after verification
