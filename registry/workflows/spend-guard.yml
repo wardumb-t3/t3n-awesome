@@ -24,4 +24,5 @@ provider:
 contract:
   wit_world: guarded-commerce
   version: 0.1.0
+  functions: [pay-for-service, get-ledger]
 added: 2026-11-26

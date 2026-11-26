@@ -188,7 +188,11 @@ if (command === 'parse') {
       },
     }),
     ...(entry.section.type === 'workflow' && workflow && {
-      contract: { wit_world: workflow.wit_world, ...(workflow.version && { version: workflow.version }) },
+      contract: {
+        wit_world: workflow.wit_world,
+        ...(workflow.version && { version: workflow.version }),
+        ...(workflow.functions.length && { functions: workflow.functions }),
+      },
     }),
     added: new Date().toISOString().slice(0, 10),
   };

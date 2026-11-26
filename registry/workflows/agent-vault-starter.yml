@@ -22,4 +22,5 @@ provider:
 contract:
   wit_world: agent-vault
   version: 0.1.0
+  functions: [store, check, forget]
 added: 2026-11-24
