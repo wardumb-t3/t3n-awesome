@@ -29,6 +29,15 @@ for (const { dir, file, path, data } of loadEntries()) {
   seenUrls.set(urlKey, where);
 }
 
+const byId = new Map(loadEntries().map((e) => [e.data.id, e.data]));
+for (const { path, data } of loadEntries()) {
+  for (const id of data.uses ?? []) {
+    const target = byId.get(id);
+    if (!target) errors.push(`${relative(ROOT, path)}: uses "${id}", which isn't an entry`);
+    else if (target.type === 'demo') errors.push(`${relative(ROOT, path)}: uses "${id}", which is another demo`);
+  }
+}
+
 for (const w of warnings) console.warn(`warn  ${w}`);
 for (const e of errors) console.error(`error ${e}`);
 if (errors.length) process.exit(1);

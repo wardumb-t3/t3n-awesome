@@ -12,6 +12,20 @@
     "summary": { "type": "string", "minLength": 20, "maxLength": 200, "description": "One sentence. Lead with what the agent can do safely." },
     "url": { "type": "string", "format": "uri", "description": "Repo, docs or product page" },
     "repo": { "type": "string", "pattern": "^https://github\\.com/[A-Za-z0-9-]+/[A-Za-z0-9._-]+$", "description": "Source repo, when url is a docs or product page" },
+    "uses": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": { "type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$" },
+      "description": "Demos only: ids of the entries the demo shows in action"
+    },
+    "works_with": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": { "enum": ["any-t3n-agent", "claude", "chatgpt", "gemini", "muse", "copilot"] },
+      "description": "AIs that can use this entry today. Listing it makes a workflow or tool a Skill on the Agent Directory."
+    },
     "demo_url": { "type": ["string", "null"], "format": "uri" },
     "pillars": {
       "type": "array",
@@ -70,6 +84,7 @@
   },
   "allOf": [
     { "if": { "properties": { "type": { "const": "agent" } } }, "then": { "required": ["business_function"] } },
+    { "if": { "properties": { "type": { "not": { "const": "demo" } } } }, "then": { "not": { "required": ["uses"] } } },
     {
       "$comment": "Demos, workflows, tools and agents must be built on T3N. Learn resources may cover any stack.",
       "if": { "properties": { "type": { "enum": ["agent", "workflow", "tool", "demo"] } } },

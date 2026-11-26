@@ -20,6 +20,14 @@ const REPO_URL = /^https:\/\/github\.com\/[A-Za-z0-9-]{1,39}\/[A-Za-z0-9._-]{1,1
 // The Agent Directory files issues with this marker. Its submitters aren't GitHub users, so the
 // issue author (the Directory's bot account) must not become the entry's maintainer.
 const DIRECTORY_MARKER = '<!-- source: agent-directory -->';
+const WORKS_WITH = {
+  'Any agent built on T3 Network': 'any-t3n-agent',
+  Claude: 'claude',
+  ChatGPT: 'chatgpt',
+  Gemini: 'gemini',
+  Muse: 'muse',
+  Copilot: 'copilot',
+};
 const BUSINESS_FUNCTIONS = {
   'Payroll & HR': 'payroll-hr',
   'Finance & Payments': 'finance-payments',
@@ -85,6 +93,8 @@ function read() {
     // The repo the bot scans for T3N: the Link itself if it's a GitHub repo, else the Source code field.
     repo: REPO_URL.test(url) ? url : REPO_URL.test(repoField) ? repoField : '',
     fromDirectory: body.includes(DIRECTORY_MARKER),
+    worksWith: checked(f['Works with (optional)']).map((c) => WORKS_WITH[c]).filter(Boolean),
+    uses: (f['Shows these entries (demos only)'] ?? '').split(/[\s,]+/).map((s) => s.trim()).filter(Boolean),
   };
 
   const problems = [];
@@ -98,6 +108,10 @@ function read() {
   if (repoField && !REPO_URL.test(repoField)) problems.push('**Source code** must look like `https://github.com/owner/repo`.');
   if (businessFunction && !entry.businessFunction) problems.push('**Business function** isn\'t one of the listed options.');
   if (section?.type === 'agent' && !entry.businessFunction) problems.push('Agents need a **Business function**.');
+  if (entry.uses.length && section?.type !== 'demo') problems.push('Only demos can list **entries they show**.');
+  const ids = new Set(loadEntries().map((e) => e.data.id));
+  const unknown = entry.uses.filter((id) => !ids.has(id));
+  if (unknown.length) problems.push(`These entries don't exist: ${unknown.map((id) => `\`${id}\``).join(', ')}.`);
   // GitHub owner/repo names are case-insensitive.
   const seen = new Set([url, entry.repo].filter(Boolean).map((u) => u.toLowerCase()));
   const existing = loadEntries().find((e) => [e.data.url, e.data.repo].some((u) => u && seen.has(u.toLowerCase())));
@@ -149,7 +163,9 @@ if (command === 'parse') {
     url: entry.url,
     ...(entry.repo !== entry.url && { repo: entry.repo }),
     ...(entry.demo && { demo_url: entry.demo }),
+    ...(entry.uses.length && { uses: entry.uses }),
     pillars: entry.pillars,
+    ...(entry.worksWith.length && { works_with: entry.worksWith }),
     runtime: 't3n',
     t3n_features: found.features,
     ...(entry.license && { license: entry.license }),

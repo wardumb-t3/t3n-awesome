@@ -58,14 +58,15 @@ Tags such as `privacy` or `spend-control` name the security control an entry dem
 
 End-to-end apps you can run, fork or modify.
 
-- [Safe Flight Booking for Muse](https://github.com/wardumb-t3/safe-flight-booking-muse) ![Built by T3N](https://img.shields.io/badge/built_by-T3N-0b2a4a) — Meta's Muse agent books real flights without ever seeing the passport. It's scanned on the phone, sealed to the user's vault and sent to Duffel from the enclave. `privacy` `delegation` · rust, wasm, node, vite
-- [Spend-Controlled Call-Centre Agent](https://github.com/Terminal-3/adk-circle-call-centre-agent-demo) ![Built by T3N](https://img.shields.io/badge/built_by-T3N-0b2a4a) — Support agent buys paid lookups over x402/USDC with an allowlist, per-call cap, session budget, tamper-evident ledger and one-click revoke. `spend-control` `audit` · typescript, rust, wasm, nextjs
+- [Safe Flight Booking for Muse](https://github.com/wardumb-t3/safe-flight-booking-muse) ![Built by T3N](https://img.shields.io/badge/built_by-T3N-0b2a4a) — Meta's Muse agent books real flights without ever seeing the passport. It's scanned on the phone, sealed to the user's vault and sent to Duffel from the enclave. `privacy` `delegation` · rust, wasm, node, vite · Uses Z-Tenant Flight, Private Doc Scanner
+- [Spend-Controlled Call-Centre Agent](https://github.com/Terminal-3/adk-circle-call-centre-agent-demo) ![Built by T3N](https://img.shields.io/badge/built_by-T3N-0b2a4a) — Support agent buys paid lookups over x402/USDC with an allowlist, per-call cap, session budget, tamper-evident ledger and one-click revoke. `spend-control` `audit` · typescript, rust, wasm, nextjs · Uses Spend Guard
 
 ## 🔐 Workflows
 
 Confidential functions that run sealed in the enclave. Deploy or fork.
 
 - [Agent Vault Starter](https://github.com/Terminal-3/agent-vault-starter) ![Built by T3N](https://img.shields.io/badge/built_by-T3N-0b2a4a) — The store / check / forget template — agents ask "over 18?" or "KYC verified?" and get true/false, never the underlying record. Best first workflow. `privacy` `credentials` · rust, wasm
+- [Spend Guard](https://github.com/Terminal-3/adk-circle-call-centre-agent-demo/tree/main/contract) ![Built by T3N](https://img.shields.io/badge/built_by-T3N-0b2a4a) — Lets an agent pay for services over x402/USDC only within an allowlist, a per-call cap and a session budget; every payment is logged and can be revoked instantly. `spend-control` `audit` · rust, wasm · [Source](https://github.com/Terminal-3/adk-circle-call-centre-agent-demo)
 - [Z-Tenant Flight](https://github.com/Terminal-3/z-tenant-flight) ![Built by T3N](https://img.shields.io/badge/built_by-T3N-0b2a4a) — Enclave workflow that searches and books Duffel flights; traveller PII stays in sealed maps and outbound calls are locked to one host. `privacy` `egress-control` · rust, wasm, typescript
 
 ## 🧰 Tools

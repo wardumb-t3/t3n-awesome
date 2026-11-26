@@ -1,0 +1,27 @@
+id: spend-guard
+name: Spend Guard
+type: workflow
+summary: Lets an agent pay for services over x402/USDC only within an allowlist, a per-call cap and a session budget; every payment is logged and can be revoked instantly.
+url: https://github.com/Terminal-3/adk-circle-call-centre-agent-demo/tree/main/contract
+repo: https://github.com/Terminal-3/adk-circle-call-centre-agent-demo
+pillars: [spend-control, audit]
+works_with: [any-t3n-agent]
+stack: [rust, wasm]
+runtime: t3n
+t3n_features: [tenant-contract, sealed-maps, outbound-http]
+license: MIT
+badge: built-by-t3n
+business_function: finance-payments
+pain: An agent holding a payment credential can overspend or be tricked into paying anyone.
+protects: The payment credential stays sealed; every payment is checked against policy before it's made and written to a tamper-evident ledger.
+flow:
+  source: Operator funds the agent and sets limits
+  enclave: Spend Guard checks payee, cap and budget, then pays
+  agent: Gets the paid result, never the credential
+provider:
+  name: Terminal 3
+  website: https://terminal3.io
+contract:
+  wit_world: guarded-commerce
+  version: 0.1.0
+added: 2026-11-26

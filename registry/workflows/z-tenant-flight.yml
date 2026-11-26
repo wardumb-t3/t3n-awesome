@@ -4,6 +4,7 @@ type: workflow
 summary: Enclave workflow that searches and books Duffel flights; traveller PII stays in sealed maps and outbound calls are locked to one host.
 url: https://github.com/Terminal-3/z-tenant-flight
 pillars: [privacy, egress-control]
+works_with: [any-t3n-agent, muse]
 stack: [rust, wasm, typescript]
 runtime: t3n
 t3n_features: [tenant-contract, sealed-maps, outbound-http, http-placeholders, t3n-sdk, egress-grant, agent-credits]

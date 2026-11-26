@@ -3,6 +3,7 @@ name: Safe Flight Booking for Muse
 type: demo
 summary: Meta's Muse agent books real flights without ever seeing the passport. It's scanned on the phone, sealed to the user's vault and sent to Duffel from the enclave.
 url: https://github.com/wardumb-t3/safe-flight-booking-muse
+uses: [z-tenant-flight, private-doc-scanner]
 pillars: [privacy, delegation]
 stack: [rust, wasm, node, vite]
 runtime: t3n
