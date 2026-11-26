@@ -88,6 +88,12 @@
       "properties": {
         "wit_world": { "type": "string" },
         "version": { "type": "string" },
+        "functions": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "type": "string", "pattern": "^[a-z][a-z0-9-]*$" },
+          "description": "Functions the workflow exports, read from its WIT by the submission bot"
+        },
         "wasm_sha256": { "type": ["string", "null"], "pattern": "^[0-9a-f]{64}$" }
       }
     },

@@ -22,4 +22,5 @@ provider:
 contract:
   wit_world: tenant-flight
   version: 0.7.0
+  functions: [save-traveller, forget-traveller, search-offers, book-offer]
 added: 2026-11-24

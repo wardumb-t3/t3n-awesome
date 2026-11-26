@@ -24,6 +24,19 @@ function* walk(dir, root = dir, seen = { n: 0 }) {
   }
 }
 
+/** The text inside `interface <name> { ... }`, matching braces so nested records don't end it early. */
+function interfaceBody(wit, name) {
+  const start = wit.search(new RegExp(`^\\s*interface\\s+${name}\\s*\\{`, 'm'));
+  if (start < 0) return '';
+  const open = wit.indexOf('{', start);
+  let depth = 0;
+  for (let i = open; i < wit.length; i++) {
+    if (wit[i] === '{') depth++;
+    else if (wit[i] === '}' && --depth === 0) return wit.slice(open + 1, i);
+  }
+  return '';
+}
+
 export function detect(dir) {
   const features = new Map(); // feature -> first file that showed it
   const workflows = [];
@@ -43,7 +56,10 @@ export function detect(dir) {
         if (ns === 'tenant') add('tenant-contract', rel);
         else if (!NEUTRAL_IMPORTS.has(iface)) add(IMPORT_FEATURE[iface] ?? iface, rel);
       }
-      if (isT3n) workflows.push({ path: rel, wit_world: world[1], version: pkg?.[1] ?? null });
+      // The functions an agent can call: those declared in the world's exported `contracts` interface.
+      const body = interfaceBody(wit, 'contracts');
+      const functions = [...body.matchAll(/^\s*([a-z][a-z0-9-]*)\s*:\s*func\s*\(/gm)].map((m) => m[1]);
+      if (isT3n) workflows.push({ path: rel, wit_world: world[1], version: pkg?.[1] ?? null, functions });
       continue;
     }
     if (!SOURCE.test(rel)) continue;
